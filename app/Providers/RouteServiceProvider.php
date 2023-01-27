@@ -18,6 +18,9 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/home';
+    protected $employeeNamespace = 'App\Http\Controllers\Employee';
+    protected $managerNamespace = 'App\Http\Controllers\Manager';
+    protected $adminNamespace = 'App\Http\Controllers\Admin';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -34,7 +37,25 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+                ->namespace($this->employeeNamespace)
+                ->prefix('/em')
+                ->name('em.')
+                ->group(base_path('routes/employee.php'));
+
+            Route::middleware('web')
+                ->namespace($this->managerNamespace)
+                ->prefix('/ma')
+                ->name('ma.')
+                ->group(base_path('routes/manager.php'));
+
+            Route::middleware('web')
+                ->namespace($this->adminNamespace)
+                ->prefix('/ad')
+                ->name('ad.')
+                ->group(base_path('routes/admin.php'));
+
+            Route::middleware('web')
+                ->group(base_path('routes/auth.php'));
         });
     }
 
