@@ -48,7 +48,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('ma.')
                 ->group(base_path('routes/manager.php'));
 
-            Route::middleware('web')
+            Route::middleware(['web', 'prefix'])
                 ->namespace($this->adminNamespace)
                 ->prefix('/ad')
                 ->name('ad.')
