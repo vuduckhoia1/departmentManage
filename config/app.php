@@ -83,6 +83,7 @@ return [
     */
 
     'locale' => 'en',
+    'support_languages' => env('SUPPORT_LANGUAGES', 'vi, en'),
 
     /*
     |--------------------------------------------------------------------------

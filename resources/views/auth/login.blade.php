@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+                    <div class="card-header">{{ __('auth.login') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -76,5 +76,8 @@
             </div>
         </div>
     </div>
+    <a href="{{ route('setLocale', 'vi') }}">VI</a>
+    <a href="{{ route('setLocale', 'en') }}">EN</a>
+
 </body>
 </html>
